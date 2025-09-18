@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Training & Internship | Software Programs</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    body { scroll-behavior: smooth; }
+    .hero {
+      background: linear-gradient(to right, #0d6efd, #6610f2);
+      color: white;
+      padding: 100px 0;
+      text-align: center;
+    }
+    .course-card {
+      transition: transform 0.3s;
+    }
+    .course-card:hover {
+      transform: translateY(-5px);
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">SoftTrain</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#courses">Courses</a></li>
+        <li class="nav-item"><a class="nav-link" href="#internship">Internship</a></li>
+        <li class="nav-item"><a class="nav-link" href="#enquiry">Enquiry</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section id="home" class="hero">
+  <div class="container">
+    <h1 class="display-4 fw-bold">Training & Internship Programs</h1>
+    <p class="lead">Learn React, React Native, Django, DRF, Tailwind, Bootstrap & more</p>
+    <a href="#courses" class="btn btn-light btn-lg mt-3">Explore Courses</a>
+  </div>
+</section>
+
+<!-- Courses -->
+<section id="courses" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Our Courses</h2>
+    <div class="row g-4">
+      <!-- React -->
+      <div class="col-md-4">
+        <div class="card course-card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">React</h5>
+            <p class="card-text">Build dynamic front-end apps with React.js.</p>
+            <button class="btn btn-primary btn-sm">Learn More</button>
+          </div>
+        </div>
+      </div>
+      <!-- React Native -->
+      <div class="col-md-4">
+        <div class="card course-card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">React Native</h5>
+            <p class="card-text">Create mobile apps for Android & iOS.</p>
+            <button class="btn btn-primary btn-sm">Learn More</button>
+          </div>
+        </div>
+      </div>
+      <!-- Django & DRF -->
+      <div class="col-md-4">
+        <div class="card course-card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Django & DRF</h5>
+            <p class="card-text">Develop powerful backends with Python Django & REST Framework.</p>
+            <button class="btn btn-primary btn-sm">Learn More</button>
+          </div>
+        </div>
+      </div>
+      <!-- Tailwind -->
+      <div class="col-md-4">
+        <div class="card course-card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Tailwind CSS</h5>
+            <p class="card-text">Master utility-first responsive design.</p>
+            <button class="btn btn-primary btn-sm">Learn More</button>
+          </div>
+        </div>
+      </div>
+      <!-- Bootstrap -->
+      <div class="col-md-4">
+        <div class="card course-card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Bootstrap</h5>
+            <p class="card-text">Build responsive sites fast with Bootstrap.</p>
+            <button class="btn btn-primary btn-sm">Learn More</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Internship -->
+<section id="internship" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-4">Internship Opportunities</h2>
+    <p class="text-center">Join our internship programs to gain real-world experience in software development.</p>
+    <div class="text-center">
+      <a href="#enquiry" class="btn btn-success btn-lg">Apply Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- Enquiry -->
+<section id="enquiry" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Enquiry</h2>
+    <form id="enquiryForm" class="mx-auto" style="max-width:600px;">
+      <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control" name="name" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" name="email" placeholder="Enter your email">
+        <div class="invalid-feedback">Please provide an email or mobile number.</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Mobile Number</label>
+        <input type="tel" class="form-control" name="mobile" pattern="[0-9]{10}" placeholder="Enter 10-digit number">
+        <div class="invalid-feedback">Please provide a valid mobile number or email.</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Message</label>
+        <textarea class="form-control" rows="4" name="message" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Send</button>
+    </form>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-dark text-light py-3 text-center">
+  <p class="mb-0">&copy; 2025 SoftTrain. All Rights Reserved.</p>
+</footer>
+
+<script>
+    // AJAX call to Django REST API
+    $.ajax({
+      url: "/api/enquiry/", 
+      type: "POST",
+      data: JSON.stringify({
+        name: name,
+        email: email,
+        mobile: mobile,
+        message: message
+      }),
+      contentType: "application/json",
+      success: function(response){
+        if(response.success === true){
+          alert("✅ Enquiry submitted successfully!");
+          $("#enquiryForm")[0].reset();
+        } else {
+          alert("❌ Failed to submit enquiry. Please try again.");
+        }
+      },
+      error: function(){
+        alert("⚠️ Server error. Please try again later.");
+      }
+    });
+</script>
+<style>
+  .is-invalid {
+    border: 2px solid red !important;
+  }
+</style>
+</body>
+</html>
+
