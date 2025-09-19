@@ -24,6 +24,9 @@
     .course-card:hover {
       transform: translateY(-5px);
     }
+    .is-invalid {
+      border: 2px solid red !important;
+    }
   </style>
 </head>
 <body>
@@ -129,27 +132,25 @@
 <section id="enquiry" class="py-5">
   <div class="container">
     <h2 class="text-center mb-4">Enquiry</h2>
-    <form id="enquiryForm" class="mx-auto" style="max-width:600px;">
+    <div id="enquiryBox" class="mx-auto" style="max-width:600px;">
       <div class="mb-3">
         <label class="form-label">Name</label>
-        <input type="text" class="form-control" name="name" required>
+        <input type="text" class="form-control" id="name" required>
       </div>
       <div class="mb-3">
         <label class="form-label">Email</label>
-        <input type="email" class="form-control" name="email" placeholder="Enter your email">
-        <div class="invalid-feedback">Please provide an email or mobile number.</div>
+        <input type="email" class="form-control" id="email" placeholder="Enter your email">
       </div>
       <div class="mb-3">
         <label class="form-label">Mobile Number</label>
-        <input type="tel" class="form-control" name="mobile" pattern="[0-9]{10}" placeholder="Enter 10-digit number">
-        <div class="invalid-feedback">Please provide a valid mobile number or email.</div>
+        <input type="tel" class="form-control" id="mobile" pattern="[0-9]{10}" placeholder="Enter 10-digit number">
       </div>
       <div class="mb-3">
         <label class="form-label">Message</label>
-        <textarea class="form-control" rows="4" name="message" required></textarea>
+        <textarea class="form-control" rows="4" id="message" required></textarea>
       </div>
-      <button type="submit" class="btn btn-primary">Send</button>
-    </form>
+      <button id="submitEnquiry" class="btn btn-primary">Send</button>
+    </div>
   </div>
 </section>
 
@@ -159,9 +160,20 @@
 </footer>
 
 <script>
-    // AJAX call to Django REST API
+  $("#submitEnquiry").on("click", function () {
+    let name = $("#name").val().trim();
+    let email = $("#email").val().trim();
+    let mobile = $("#mobile").val().trim();
+    let message = $("#message").val().trim();
+
+    // Validation: either email or mobile is required
+    if (!email && !mobile) {
+      alert("⚠️ Please provide either an Email or a Mobile number.");
+      return;
+    }
+
     $.ajax({
-      url: "/api/enquiry/", 
+      url: "/api/enquiry/",
       type: "POST",
       data: JSON.stringify({
         name: name,
@@ -170,24 +182,20 @@
         message: message
       }),
       contentType: "application/json",
-      success: function(response){
-        if(response.success === true){
+      success: function (response) {
+        if (response.success === true) {
           alert("✅ Enquiry submitted successfully!");
-          $("#enquiryForm")[0].reset();
+          $("#enquiryBox input, #enquiryBox textarea").val("");
         } else {
           alert("❌ Failed to submit enquiry. Please try again.");
         }
       },
-      error: function(){
+      error: function () {
         alert("⚠️ Server error. Please try again later.");
       }
     });
+  });
 </script>
-<style>
-  .is-invalid {
-    border: 2px solid red !important;
-  }
-</style>
 </body>
 </html>
 
