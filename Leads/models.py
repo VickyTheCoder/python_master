@@ -5,5 +5,5 @@ from django.db import models
 class Enquiry(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
-    mobile_number = models.CharField(max_length=25)
+    mobile = models.CharField(max_length=25)
     message = models.CharField(max_length=2500)
