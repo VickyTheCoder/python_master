@@ -17,7 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from FE import views as fe_views
+from Leads import views as Leads_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', fe_views.home_page),
+    path('api/enquiry/',Leads_views.EnquiryAPIView.as_view(), name="contact_api")
 ]
